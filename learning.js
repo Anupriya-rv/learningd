@@ -1,32 +1,47 @@
 let currentStep = 0;
-const steps = document.querySelectorAll(".step");
+let steps = [];
 
-function showStep(index) {
-    steps.forEach(step => step.classList.remove("active"));
-    steps[index].classList.add("active");
+const lessons = {
+    science: [
+        "Photosynthesis is how plants make food.",
+        "Plants use sunlight, water, and carbon dioxide.",
+        "Plants produce glucose and oxygen."
+    ],
+    math: [
+        "Addition means combining numbers.",
+        "2 + 3 = 5",
+        "Practice simple addition daily."
+    ],
+    english: [
+        "A noun is a naming word.",
+        "Examples: book, car, teacher.",
+        "Nouns can be common or proper."
+    ]
+};
+
+function loadSubject() {
+    const subject = document.getElementById("subjectSelect").value;
+    steps = lessons[subject];
+    currentStep = 0;
+    showStep();
+}
+
+function showStep() {
+    const contentDiv = document.getElementById("lessonContent");
+    contentDiv.innerHTML = `<p><b>Step ${currentStep + 1}:</b> ${steps[currentStep]}</p>`;
 }
 
 function nextStep() {
     if (currentStep < steps.length - 1) {
         currentStep++;
-        showStep(currentStep);
+        showStep();
     }
 }
 
 function prevStep() {
     if (currentStep > 0) {
         currentStep--;
-        showStep(currentStep);
-    }
-}
-
-function checkAnswer(answer) {
-    const feedback = document.getElementById("feedback");
-
-    if (answer === true) {
-        feedback.innerHTML = "Great job! 🌟 You are correct!";
-    } else {
-        feedback.innerHTML = "Nice try! Plants need sunlight. Keep learning 💛";
+        showStep();
     }
 }
 
@@ -37,3 +52,5 @@ function increaseText() {
 function toggleContrast() {
     document.body.classList.toggle("high-contrast");
 }
+
+window.onload = loadSubject;
