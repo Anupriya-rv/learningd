@@ -16,6 +16,10 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}select {
+    padding: 8px;
+    margin: 10px;
+    font-size: 16px;
 }
 
 .step {
@@ -51,3 +55,4 @@ button:hover {
     font-weight: bold;
     margin-top: 10px;
 }
+
