@@ -1,53 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Learning Disability Support System</title>
-    <link rel="stylesheet" href="learning.css">
-</head>
+<h2>Select Subject</h2>
 
-<body>
+<select id="subjectSelect" onchange="loadSubject()">
+    <option value="science">Science</option>
+    <option value="math">Math</option>
+    <option value="english">English</option>
+</select>
 
-    <h1>Learning Disability Support System</h1>
+<div class="container">
+    <h2 id="lessonTitle">Lesson</h2>
 
-    <div class="container">
-        <h2>Step-by-Step Lesson</h2>
+    <div id="lessonContent"></div>
 
-        <div class="step active">
-            <p><b>Step 1:</b> Photosynthesis is how plants make food.</p>
-        </div>
-
-        <div class="step">
-            <p><b>Step 2:</b> Plants use sunlight, water, and carbon dioxide.</p>
-        </div>
-
-        <div class="step">
-            <p><b>Step 3:</b> Plants make glucose (food) and oxygen.</p>
-        </div>
-
-        <div class="buttons">
-            <button onclick="prevStep()">Previous</button>
-            <button onclick="nextStep()">Next</button>
-        </div>
-
-        <hr>
-
-        <h3>Understanding Check</h3>
-        <p>Do plants need sunlight to make food?</p>
-
-        <button onclick="checkAnswer(true)">Yes</button>
-        <button onclick="checkAnswer(false)">No</button>
-
-        <p id="feedback"></p>
-
-        <hr>
-
-        <h3>Accessibility Options</h3>
-        <button onclick="increaseText()">Increase Text Size</button>
-        <button onclick="toggleContrast()">High Contrast Mode</button>
-
+    <div class="buttons">
+        <button onclick="prevStep()">Previous</button>
+        <button onclick="nextStep()">Next</button>
     </div>
 
-    <script src="learning.js"></script>
-</body>
-</html>
+    <hr>
 
+    <h3>Accessibility</h3>
+    <button onclick="increaseText()">Increase Text Size</button>
+    <button onclick="toggleContrast()">High Contrast</button>
+</div>
